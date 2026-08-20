@@ -22,7 +22,7 @@ function ContatoPage() {
     <PageShell
       eyebrow="Contato"
       title="Como prefere falar conosco?"
-      subtitle="Escolha o canal mais adequado para sua mensagem. Para solicitar um serviço, utilize preferencialmente o formulário correspondente na página de serviços."
+      subtitle="Escolha o canal mais adequado para a sua mensagem."
     >
       <div className="flex flex-col gap-4">
         <a
@@ -50,7 +50,6 @@ function ContatoPage() {
             <span className="block text-[0.65rem] uppercase tracking-[0.2em] text-primary-foreground/70">
               WhatsApp
             </span>
-            <span className="font-display mt-1 block text-lg">+55 15 99689-7532</span>
           </span>
           <span>→</span>
         </a>

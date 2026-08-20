@@ -1,10 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell } from "@/components/PageShell";
 import { site } from "@/lib/site";
-// TEMP: reusing the small perfil photo here too so this deploy doesn't need to
-// embed viviane-retrato.jpg's bytes. Swap back to `@/assets/viviane-retrato.jpg`
-// once this project has its own git-backed asset pipeline.
-import retrato from "@/assets/viviane-perfil.jpg";
+import retrato from "@/assets/viviane-retrato.jpg";
 
 const title = "Quem é Viviane Pompeu | Genealogista";
 const description =
@@ -47,18 +44,32 @@ function SobrePage() {
       </div>
 
       <p className="mt-8 text-[0.95rem] leading-relaxed text-ink/85">
-        Viviane Pompeu é genealogista profissional, pesquisadora, palestrante, escritora e
-        presidente da Associação Profissional de Genealogistas do Brasil (APGBR). Atua
-        profissionalmente desde 2018 na pesquisa, análise e reconstrução de histórias familiares,
-        utilizando documentação histórica, fontes arquivísticas e metodologia genealógica.
-        Palestrante da RootsTech (By FamilySearch) nos anos de 2023, 2024, 2025 e 2026.
+        Genealogista Profissional, fundadora e presidente da Associação dos Profissionais
+        Genealogistas do Brasil (APGBR). Pesquisa história da família, metodologia genealógica e
+        fontes arquivísticas, com atuação em genealogia portuguesa, italiana e brasileira.
+        Palestrante, dedica-se à difusão da Genealogia por meio de cursos, palestras, produção de
+        conteúdo, projetos de preservação da memória e formação de genealogistas.
       </p>
-      <p className="mt-4 text-[0.95rem] leading-relaxed text-ink/85">
-        É especializada em genealogia brasileira, portuguesa e italiana, história da família,
-        imigração, genealogia feminina e genética aplicada à pesquisa documental. Ao longo de sua
-        trajetória, já atendeu mais de 3.000 famílias e analisou mais de 10.000 árvores
-        genealógicas. Seu trabalho busca reconectar pessoas às próprias origens com rigor, ética e
-        respeito às evidências.
+      <p className="mt-4 text-[0.8rem] text-ink/60">
+        ORCID:{" "}
+        <a
+          href="https://orcid.org/0009-0009-1049-3201"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline"
+        >
+          0009-0009-1049-3201
+        </a>
+        . ID Lattes:{" "}
+        <a
+          href="http://lattes.cnpq.br/7838542352281750"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline"
+        >
+          7838542352281750
+        </a>
+        .
       </p>
 
       <ul className="mt-8 space-y-3 rounded-xl border border-forest/15 bg-sand/60 p-5">

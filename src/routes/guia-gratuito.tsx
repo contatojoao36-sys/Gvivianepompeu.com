@@ -3,7 +3,8 @@ import { PageShell } from "@/components/PageShell";
 import { whatsappFor } from "@/lib/site";
 
 const title = "Guia gratuito de pesquisa genealógica";
-const description = "Baixe o guia introdutório e organize os primeiros passos da sua história familiar.";
+const description =
+  "Baixe o guia introdutório e organize os primeiros passos da sua história familiar.";
 
 export const Route = createFileRoute("/guia-gratuito")({
   head: () => ({
@@ -21,12 +22,13 @@ function GuiaPage() {
   return (
     <PageShell
       eyebrow="Gratuito"
-      title="Por onde começar sua pesquisa genealógica"
+      title="30 lições que mudam o modo como você procura seus antepassados"
       subtitle="Comece sua pesquisa familiar com método e evite os erros mais comuns."
     >
       <p className="text-[0.95rem] leading-relaxed text-ink/85">
-        Baixe gratuitamente o guia introdutório e descubra quais informações reunir, quais
-        documentos procurar e como organizar os primeiros passos da sua pesquisa genealógica.
+        Baixe gratuitamente o guia introdutório que eu gostaria de ter lido antes de começar a
+        pesquisar minha própria família. São 30 lições práticas para ajudar você a começar sua
+        pesquisa genealógica com mais clareza e evitar erros que podem custar muito tempo.
       </p>
 
       <div className="mt-8 rounded-xl border border-forest/15 bg-sand/60 p-6 text-center">
