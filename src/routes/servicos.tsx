@@ -67,6 +67,14 @@ const SERVICOS: Servico[] = [
   },
   {
     numero: "06",
+    titulo: "Cidadania portuguesa ou italiana — documentação incompleta",
+    texto:
+      "Ainda preciso localizar documentos, confirmar a linha familiar ou verificar quais registros serão necessários.",
+    cta: "Solicitar diagnóstico documental",
+    link: "https://wa.me/5515997030525?text=Ol%C3%A1%20equipe%20da%20Viviane%20Pompeu.%20Ainda%20preciso%20localizar%20documentos%2C%20confirmar%20a%20linha%20familiar%20ou%20verificar%20quais%20registros%20ser%C3%A3o%20necess%C3%A1rios.",
+  },
+  {
+    numero: "07",
     titulo: "Mentoria individual",
     texto:
       "Acompanhamento individual para quem deseja desenvolver uma pesquisa própria com orientação metodológica. (Mínimo 5 encontros quinzenais)",
@@ -74,7 +82,7 @@ const SERVICOS: Servico[] = [
     link: "https://wa.me/5515997030525?text=Ol%C3%A1%20equipe%20da%20Viviane%20Pompeu.%20Quero%20mentoria%20individual%20para%20a%20minha%20pesquisa%20geneal%C3%B3gica.",
   },
   {
-    numero: "07",
+    numero: "08",
     titulo: "Treinamentos para equipes e instituições",
     texto:
       "Formações personalizadas para arquivos, empresas, associações, instituições de ensino e equipes que utilizam genealogia, documentação histórica ou história da família de forma profissional.",
@@ -82,7 +90,7 @@ const SERVICOS: Servico[] = [
     link: "https://wa.me/5515997030525?text=Ol%C3%A1%20equipe%20da%20Viviane%20Pompeu.%20Quero%20treinar%20minha%20equipe.",
   },
   {
-    numero: "08",
+    numero: "09",
     titulo: "Reunião inicial com especialista",
     texto:
       "Atendimento individual, mediante agendamento, para dúvidas. Este é um serviço remunerado. Tempo: 30 min.",
@@ -96,7 +104,7 @@ function ServicosPage() {
     <PageShell
       eyebrow="Serviços"
       title="Como podemos ajudar em sua pesquisa?"
-      subtitle="Escolha a opção que melhor representa o momento atual da sua pesquisa. A partir das informações fornecidas, nossa equipe indicará o caminho mais adequado."
+      subtitle="Escolha a opção que melhor representa o momento atual da sua pesquisa. A partir das informações fornecidas, nossa equipe seguirá com o atendimento mais adequado."
     >
       <div className="space-y-4">
         {SERVICOS.map((s) => (

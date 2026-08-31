@@ -6,7 +6,8 @@ export const site = {
   brand: "Viviane Pompeu",
   role: "Genealogista profissional",
   tagline: "Pesquisa e Genealogia",
-  promise: "Histórias familiares reconstruídas com documentos, método e contexto.",
+  promise:
+    "Reconstruo histórias familiares com metodologia personalizada, pesquisa documental e respeito à singularidade de cada trajetória.",
   proof: ["+3 mil famílias atendidas", "+10 mil árvores analisadas"],
   proofCountries: ["Brasil", "Portugal", "Itália"],
   hours: "Atendimento: seg. a qui., das 10h às 16h",

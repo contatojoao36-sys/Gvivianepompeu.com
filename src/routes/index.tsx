@@ -127,8 +127,8 @@ function Home() {
         {/* Cabeçalho */}
         <header className="text-center">
           <motion.div
-            className="mx-auto h-24 w-24 overflow-hidden rounded-full ring-2 ring-accent/60 sm:h-28 sm:w-28"
-            initial={{ opacity: 0, scale: 0.92 }}
+            className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl shadow-[0_18px_50px_-24px_rgba(52,73,58,0.55)] ring-1 ring-forest/10 sm:aspect-[16/11]"
+            initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.1, ease: EASE }}
           >
@@ -138,39 +138,27 @@ function Home() {
               width={653}
               height={653}
               fetchPriority="high"
-              className="h-full w-full object-cover"
+              className="h-full w-full object-cover object-top"
             />
+            <div
+              className="absolute inset-0 bg-gradient-to-t from-forest/80 via-forest/25 to-transparent"
+              aria-hidden
+            />
+            <div className="absolute inset-x-0 bottom-0 p-6 text-left sm:p-9">
+              <span className="text-[0.65rem] font-semibold uppercase tracking-[0.32em] text-accent">
+                {site.role}
+              </span>
+              <h1 className="font-display mt-2 text-[clamp(2.2rem,9vw,3.2rem)] italic leading-[0.95] text-cream">
+                {site.brand}
+              </h1>
+              <p className="mt-3 max-w-md text-[0.85rem] leading-relaxed text-cream/90 sm:text-[0.95rem]">
+                {site.promise}
+              </p>
+            </div>
           </motion.div>
 
-          <motion.span
-            className="mt-5 inline-block text-[0.65rem] font-semibold uppercase tracking-[0.32em] text-accent"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.1, ease: EASE }}
-          >
-            {site.role}
-          </motion.span>
-
-          <motion.h1
-            className="font-display mt-2 text-[clamp(2.6rem,13vw,4rem)] italic leading-[0.95] text-primary"
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.18, ease: EASE }}
-          >
-            {site.brand}
-          </motion.h1>
-
           <motion.p
-            className="mx-auto mt-4 max-w-md text-[0.95rem] leading-relaxed text-ink/80"
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.3, ease: EASE }}
-          >
-            {site.promise}
-          </motion.p>
-
-          <motion.p
-            className="mx-auto mt-5 max-w-md text-[0.68rem] uppercase tracking-[0.18em] text-forest/70"
+            className="mx-auto mt-7 max-w-md text-[0.68rem] uppercase tracking-[0.18em] text-forest/70"
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4, ease: EASE }}
