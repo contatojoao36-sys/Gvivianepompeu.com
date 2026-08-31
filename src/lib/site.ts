@@ -57,7 +57,7 @@ export const cards: Card[] = [
     desc: "Genealogista profissional, pesquisadora, palestrante, escritora e presidente da APGBR. Conheça a trajetória e a abordagem por trás de cada pesquisa.",
     cta: "Conhecer a Viviane",
     href: "/viviane-pompeu",
-    tone: "light",
+    tone: "dark",
     thumb: "portrait",
   },
   {
