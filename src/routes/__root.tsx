@@ -72,32 +72,29 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   );
 }
 
-const title = "Dra. Helo Porcelli | Medicina Estética";
-const description =
-  "Dra. Helo Porcelli — medicina estética autoral. Conheça a abordagem, os procedimentos e os canais oficiais de contato.";
-
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title },
-      { name: "description", content: description },
-      { name: "author", content: "Dra. Helo Porcelli" },
-      { property: "og:site_name", content: "Dra. Helo Porcelli" },
-      { property: "og:title", content: title },
-      { property: "og:description", content: description },
+      { title: "Pesquisa e Genealogia | Viviane Pompeu" },
+      {
+        name: "description",
+        content:
+          "Links oficiais de Viviane Pompeu — pesquisa genealógica, ascendência e história familiar.",
+      },
+      { name: "author", content: "Viviane Pompeu" },
+      { property: "og:site_name", content: "Viviane Pompeu — Pesquisa e Genealogia" },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "pt_BR" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "theme-color", content: "#121110" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Manrope:wght@300;400;500&display=swap",
       },
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
@@ -111,7 +108,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="pt-BR">
+    <html lang="en">
       <head>
         <HeadContent />
       </head>

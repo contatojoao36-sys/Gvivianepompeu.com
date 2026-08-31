@@ -5,9 +5,8 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Dra. Helo Porcelli — Medicina Estética
- * Identidade editorial premium: tinta (ink), osso (bone) e champanhe (gold),
- * com blush como calor secundário. Serif autoral (Fraunces) + sans limpa (Inter).
+ * Viviane Pompeu — Pesquisa e Genealogia
+ * Vitrine bio: bordô + dourado, sobre marfim/pergaminho.
  */
 
 @theme inline {
@@ -40,46 +39,44 @@
   --color-ring-offset-background: var(--background);
 
   --color-ink: var(--ink);
-  --color-ink-soft: var(--ink-soft);
-  --color-bone: var(--bone);
-  --color-porcelain: var(--porcelain);
-  --color-champagne: var(--champagne);
-  --color-blush: var(--blush);
+  --color-sage: var(--sage);
+  --color-forest: var(--forest);
+  --color-sand: var(--sand);
+  --color-cream: var(--cream);
 
-  --font-display: "Fraunces", "Times New Roman", serif;
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Cormorant Garamond", "Times New Roman", serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
-  --radius: 0.25rem;
+  --radius: 0.875rem;
 
-  /* Tinta, osso e champanhe — editorial premium */
-  --ink: #121110;
-  --ink-soft: #1d1a17;
-  --bone: #f6f1e8;
-  --porcelain: #fffdf9;
-  --champagne: #c7a866;
-  --blush: #e7d6cd;
+  /* Bordô + dourado sobre marfim/pergaminho */
+  --cream: #f7f3ec;
+  --sand: #f3e7d3;
+  --sage: #c69a5b;
+  --forest: #7a263a;
+  --ink: #2a1e1b;
 
-  --background: var(--bone);
-  --foreground: var(--ink);
-  --card: var(--porcelain);
-  --card-foreground: var(--ink);
-  --popover: var(--porcelain);
-  --popover-foreground: var(--ink);
-  --primary: var(--champagne);
-  --primary-foreground: var(--ink);
-  --secondary: var(--blush);
-  --secondary-foreground: var(--ink);
-  --muted: #ece4d4;
-  --muted-foreground: #6f6759;
-  --accent: var(--champagne);
-  --accent-foreground: var(--ink);
+  --background: #f7f3ec;
+  --foreground: #2a1e1b;
+  --card: #fdfaf5;
+  --card-foreground: #2a1e1b;
+  --popover: #fdfaf5;
+  --popover-foreground: #2a1e1b;
+  --primary: #7a263a;
+  --primary-foreground: #fbf3e7;
+  --secondary: #f3e7d3;
+  --secondary-foreground: #2a1e1b;
+  --muted: #f1e9df;
+  --muted-foreground: #7a6a62;
+  --accent: #c69a5b;
+  --accent-foreground: #3a1f28;
   --destructive: oklch(0.6 0.2 25);
   --destructive-foreground: oklch(0.98 0.01 90);
-  --border: color-mix(in oklab, var(--ink) 12%, transparent);
-  --input: color-mix(in oklab, var(--ink) 18%, transparent);
-  --ring: var(--champagne);
+  --border: color-mix(in oklab, var(--forest) 14%, transparent);
+  --input: color-mix(in oklab, var(--forest) 20%, transparent);
+  --ring: #c69a5b;
 
   --ease-cine: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -91,7 +88,6 @@
 
   html {
     -webkit-font-smoothing: antialiased;
-    scroll-behavior: smooth;
   }
 
   body {
@@ -106,17 +102,11 @@
   h3 {
     font-family: var(--font-display);
     font-weight: 300;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.015em;
   }
 
   ::selection {
-    background: color-mix(in oklab, var(--champagne) 55%, transparent);
-  }
-
-  a:focus-visible,
-  button:focus-visible {
-    outline: 2px solid var(--champagne);
-    outline-offset: 3px;
+    background: color-mix(in oklab, var(--sage) 55%, transparent);
   }
 }
 
@@ -126,9 +116,9 @@
 
 @utility eyebrow {
   font-size: 0.6875rem;
-  letter-spacing: 0.34em;
+  letter-spacing: 0.32em;
   text-transform: uppercase;
-  color: color-mix(in oklab, var(--champagne) 80%, black);
+  color: color-mix(in oklab, var(--forest) 70%, white);
 }
 
 @utility rule-line {
@@ -136,7 +126,7 @@
   background: linear-gradient(
     90deg,
     transparent,
-    color-mix(in oklab, var(--champagne) 60%, transparent),
+    color-mix(in oklab, var(--forest) 45%, transparent),
     transparent
   );
 }
@@ -148,17 +138,9 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
-    opacity: 0.045;
-    mix-blend-mode: overlay;
+    opacity: 0.05;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
   }
-}
-
-/* Glassmorphism extremamente sutil, usado apenas na navegação flutuante. */
-@utility glass-nav {
-  background: color-mix(in oklab, var(--bone) 72%, transparent);
-  backdrop-filter: blur(18px) saturate(140%);
-  -webkit-backdrop-filter: blur(18px) saturate(140%);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -167,6 +149,5 @@
   *::after {
     animation-duration: 0.001ms !important;
     transition-duration: 0.001ms !important;
-    scroll-behavior: auto !important;
   }
 }
