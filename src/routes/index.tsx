@@ -176,6 +176,17 @@ function Home() {
             transition={{ duration: 1, delay: 0.4, ease: EASE }}
           >
             {site.proof.join("  ·  ")}
+            {"  ·  "}
+            <span className="font-semibold">{site.proofCountries.join(" · ")}</span>
+          </motion.p>
+
+          <motion.p
+            className="mx-auto mt-2 max-w-md text-[0.65rem] uppercase tracking-[0.16em] text-forest/60"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.44, ease: EASE }}
+          >
+            {site.hours}
           </motion.p>
 
           {/* Aviso sobre a fila */}
@@ -186,7 +197,9 @@ function Home() {
             transition={{ duration: 1, delay: 0.48, ease: EASE }}
           >
             <p className="text-sm font-semibold text-forest">{site.queueNotice.title}</p>
-            <p className="mt-1 text-[0.82rem] leading-relaxed text-ink/75">{site.queueNotice.body}</p>
+            <p className="mt-1 text-[0.82rem] leading-relaxed text-ink/75">
+              {site.queueNotice.body}
+            </p>
           </motion.div>
 
           {/* CTA principal — análise inicial */}

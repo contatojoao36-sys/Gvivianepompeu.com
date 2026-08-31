@@ -7,7 +7,9 @@ export const site = {
   role: "Genealogista profissional",
   tagline: "Pesquisa e Genealogia",
   promise: "Histórias familiares reconstruídas com documentos, método e contexto.",
-  proof: ["+2 mil famílias atendidas", "+8 mil árvores analisadas", "Brasil", "Portugal", "Itália"],
+  proof: ["+3 mil famílias atendidas", "+10 mil árvores analisadas"],
+  proofCountries: ["Brasil", "Portugal", "Itália"],
+  hours: "Atendimento: seg. a qui., das 10h às 16h",
 
   queueNotice: {
     title: "Pesquisas completas têm fila de espera.",
@@ -16,16 +18,14 @@ export const site = {
 
   mainCta: {
     label: "Solicitar análise inicial",
-    detail: "7 dias + reunião (R$ 647,00)",
+    detail: "5 dias + reunião de 20 min (R$ 647,00)",
     microcopy: "Análise paga · atendimento sem fila",
-    // [NÃO INFORMADO — VERIFICAR] — link da página de solicitação de documentos e pagamento.
-    // Até a integração ser publicada, o botão abre o WhatsApp com a intenção correta.
-    href: "https://wa.me/5515996897532?text=Ol%C3%A1%2C%20quero%20solicitar%20a%20an%C3%A1lise%20inicial%20(7%20dias%20%2B%20reuni%C3%A3o).",
+    href: "https://wa.me/5515997030525?text=Ol%C3%A1%20equipe%20da%20Viviane%20Pompeu.%20Quero%20uma%20an%C3%A1lise%20paga%20%20de%20R$647,00%20e%20uma%20reuni%C3%A3o%20de%2020%20minutos.",
   },
 
   instagram: "https://www.instagram.com/pesquisaegenealogia/",
   whatsapp:
-    "https://wa.me/5515996897532?text=Ol%C3%A1%2C%20conheci%20o%20trabalho%20de%20Viviane%20Pompeu%20pelo%20Instagram%20e%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20%5Bservi%C3%A7o%20de%20interesse%5D.",
+    "https://wa.me/5515997030525?text=Ol%C3%A1%2C%20conheci%20o%20trabalho%20de%20Viviane%20Pompeu%20pelo%20Instagram%20e%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20%5Bservi%C3%A7o%20de%20interesse%5D.",
   email: "mailto:contato@pompeuecontrucci.com.br",
 
   footerTagline: "Genealogia sem fonte é mitologia.",
@@ -33,7 +33,7 @@ export const site = {
 
 export function whatsappFor(serviceLabel: string) {
   const text = `Olá, conheci o trabalho de Viviane Pompeu pelo Instagram e gostaria de informações sobre ${serviceLabel}.`;
-  return `https://wa.me/5515996897532?text=${encodeURIComponent(text)}`;
+  return `https://wa.me/5515997030525?text=${encodeURIComponent(text)}`;
 }
 
 export type Card = {
@@ -48,7 +48,7 @@ export type Card = {
   thumb: "portrait" | "documentos" | "arvore" | "europa" | "treinamento";
 };
 
-// Os cinco cartões principais de navegação (item 3.4 do briefing).
+// Os cartões principais de navegação (item 3.4 do briefing, com os ajustes finais).
 export const cards: Card[] = [
   {
     eyebrow: "Sobre",
@@ -57,7 +57,7 @@ export const cards: Card[] = [
     desc: "Genealogista profissional, pesquisadora, palestrante, escritora e presidente da APGBR. Conheça a trajetória e a abordagem por trás de cada pesquisa.",
     cta: "Conhecer a Viviane",
     href: "/viviane-pompeu",
-    tone: "dark",
+    tone: "light",
     thumb: "portrait",
   },
   {
@@ -67,17 +67,26 @@ export const cards: Card[] = [
     desc: "Nove formas de atendimento — da genealogia do zero à cidadania italiana e portuguesa. Escolha a opção que representa o momento da sua pesquisa.",
     cta: "Conhecer os serviços",
     href: "/servicos",
-    tone: "light",
+    tone: "dark",
     thumb: "documentos",
   },
   {
-    eyebrow: "Formação",
-    title: "Aulas, cursos e\ntreinamentos",
+    eyebrow: "Aulas",
+    title: "Aulas gratuitas\nno",
+    titleAccent: "YouTube",
+    desc: "Conteúdo gratuito sobre metodologia genealógica, fontes e pesquisa documental no canal do YouTube.",
+    cta: "Assistir no YouTube",
+    href: "https://www.youtube.com/@pesquisaegenealogia",
+    tone: "light",
+    thumb: "treinamento",
+  },
+  {
+    eyebrow: "Cursos",
+    title: "Cursos e\ntreinamentos",
     titleAccent: "para pesquisar",
     desc: "Formações práticas para quem quer pesquisar a própria família ou atuar profissionalmente com genealogia e documentação histórica.",
     cta: "Conhecer os cursos",
-    // [NÃO INFORMADO — VERIFICAR] — URL da página de produtos na Hotmart.
-    href: whatsappFor("os cursos e treinamentos"),
+    href: "https://hotmart.com/pt-br/marketplace/produtos/be-a-ba-da-genealogia/S96716270L?sck=HOTMART_PRODUCT_PAGE",
     tone: "dark",
     thumb: "treinamento",
   },
