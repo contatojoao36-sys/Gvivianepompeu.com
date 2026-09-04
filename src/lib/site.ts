@@ -24,6 +24,8 @@ export const site = {
     href: "https://wa.me/5515997030525?text=Ol%C3%A1%20equipe%20da%20Viviane%20Pompeu.%20Quero%20uma%20an%C3%A1lise%20paga%20%20de%20R$647,00%20e%20uma%20reuni%C3%A3o%20de%2020%20minutos.",
   },
 
+  ebookUrl: "https://go.hotmart.com/J107402601G",
+
   instagram: "https://www.instagram.com/pesquisaegenealogia/",
   whatsapp:
     "https://wa.me/5515997030525?text=Ol%C3%A1%2C%20conheci%20o%20trabalho%20de%20Viviane%20Pompeu%20pelo%20Instagram%20e%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20%5Bservi%C3%A7o%20de%20interesse%5D.",
