@@ -144,14 +144,16 @@ function Home() {
               className="absolute inset-0 bg-gradient-to-t from-forest/80 via-forest/25 to-transparent"
               aria-hidden
             />
-            <div className="absolute inset-x-0 bottom-0 p-6 text-left sm:p-9">
+            <div
+              className="absolute inset-x-0 bottom-0 p-6 text-left [text-shadow:0_1px_10px_rgba(0,0,0,0.35)] sm:p-9"
+            >
               <span className="text-[0.65rem] font-semibold uppercase tracking-[0.32em] text-accent">
                 {site.role}
               </span>
               <h1 className="font-display mt-2 text-[clamp(2.2rem,9vw,3.2rem)] italic leading-[0.95] text-cream">
                 {site.brand}
               </h1>
-              <p className="mt-3 max-w-md text-[0.85rem] leading-relaxed text-cream/90 sm:text-[0.95rem]">
+              <p className="mt-3 max-w-md text-[0.85rem] leading-relaxed text-cream sm:text-[0.95rem]">
                 {site.promise}
               </p>
             </div>
