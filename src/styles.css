@@ -5,9 +5,8 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * NaLua — acessórios personalizados feitos à mão.
- * Identidade original: gradiente dourado → rosa → lilás, lua crescente,
- * wordmark script "Yna Lua", estrelas. Vitrine premium link-in-bio.
+ * Viviane Pompeu — Pesquisa e Genealogia
+ * Vitrine bio: bordô + dourado, sobre marfim/pergaminho.
  */
 
 @theme inline {
@@ -40,51 +39,44 @@
   --color-ring-offset-background: var(--background);
 
   --color-ink: var(--ink);
-  --color-gold: var(--gold);
-  --color-gold-soft: var(--gold-soft);
-  --color-pink: var(--pink);
-  --color-purple: var(--purple);
+  --color-sage: var(--sage);
+  --color-forest: var(--forest);
+  --color-sand: var(--sand);
   --color-cream: var(--cream);
-  --color-blush: var(--blush);
 
-  --font-display: "Playfair Display", "Cormorant Garamond", "Times New Roman", serif;
-  --font-script: "Mrs Saint Delafield", "Dancing Script", cursive;
+  --font-display: "Cormorant Garamond", "Times New Roman", serif;
   --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
-  --radius: 1.1rem;
+  --radius: 0.875rem;
 
-  /* NaLua — dourado, rosa-magenta e lilás sobre marfim quente */
-  --cream: #fbf5ee;
-  --blush: #f7e6ee;
-  --gold: #cc9a3c;
-  --gold-soft: #f3d998;
-  --pink: #b23d73;
-  --purple: #6f3f83;
-  --ink: #2c1a30;
+  /* Bordô + dourado sobre marfim/pergaminho */
+  --cream: #f7f3ec;
+  --sand: #f3e7d3;
+  --sage: #c69a5b;
+  --forest: #7a263a;
+  --ink: #2a1e1b;
 
-  --background: #fbf5ee;
-  --foreground: #2c1a30;
-  --card: #ffffff;
-  --card-foreground: #2c1a30;
-  --popover: #ffffff;
-  --popover-foreground: #2c1a30;
-  --primary: #b23d73;
-  --primary-foreground: #fdf3f8;
-  --secondary: #f7e6ee;
-  --secondary-foreground: #2c1a30;
-  --muted: #f4ece1;
-  --muted-foreground: #7a6472;
-  --accent: #cc9a3c;
-  --accent-foreground: #2c1a30;
+  --background: #f7f3ec;
+  --foreground: #2a1e1b;
+  --card: #fdfaf5;
+  --card-foreground: #2a1e1b;
+  --popover: #fdfaf5;
+  --popover-foreground: #2a1e1b;
+  --primary: #7a263a;
+  --primary-foreground: #fbf3e7;
+  --secondary: #f3e7d3;
+  --secondary-foreground: #2a1e1b;
+  --muted: #f1e9df;
+  --muted-foreground: #7a6a62;
+  --accent: #c69a5b;
+  --accent-foreground: #3a1f28;
   --destructive: oklch(0.6 0.2 25);
   --destructive-foreground: oklch(0.98 0.01 90);
-  --border: color-mix(in oklab, var(--purple) 14%, transparent);
-  --input: color-mix(in oklab, var(--purple) 20%, transparent);
-  --ring: #cc9a3c;
-
-  --gradient-nalua: linear-gradient(135deg, #f3d998 0%, #eaa9a0 32%, #c2508b 62%, #6f3f83 100%);
+  --border: color-mix(in oklab, var(--forest) 14%, transparent);
+  --input: color-mix(in oklab, var(--forest) 20%, transparent);
+  --ring: #c69a5b;
 
   --ease-cine: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -109,13 +101,12 @@
   h2,
   h3 {
     font-family: var(--font-display);
-    font-weight: 500;
-    letter-spacing: -0.01em;
+    font-weight: 300;
+    letter-spacing: -0.015em;
   }
 
   ::selection {
-    background: color-mix(in oklab, var(--pink) 45%, transparent);
-    color: white;
+    background: color-mix(in oklab, var(--sage) 55%, transparent);
   }
 }
 
@@ -123,16 +114,11 @@
   font-family: var(--font-display);
 }
 
-@utility font-script {
-  font-family: var(--font-script);
-  line-height: 1.45;
-}
-
 @utility eyebrow {
   font-size: 0.6875rem;
   letter-spacing: 0.32em;
   text-transform: uppercase;
-  color: color-mix(in oklab, var(--purple) 75%, black);
+  color: color-mix(in oklab, var(--forest) 70%, white);
 }
 
 @utility rule-line {
@@ -140,20 +126,9 @@
   background: linear-gradient(
     90deg,
     transparent,
-    color-mix(in oklab, var(--purple) 45%, transparent),
+    color-mix(in oklab, var(--forest) 45%, transparent),
     transparent
   );
-}
-
-@utility nalua-gradient {
-  background: var(--gradient-nalua);
-}
-
-@utility nalua-gradient-text {
-  background: var(--gradient-nalua);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
 }
 
 @utility grain {
@@ -163,7 +138,7 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
-    opacity: 0.04;
+    opacity: 0.05;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 }
@@ -174,6 +149,5 @@
   *::after {
     animation-duration: 0.001ms !important;
     transition-duration: 0.001ms !important;
-    scroll-behavior: auto !important;
   }
 }
