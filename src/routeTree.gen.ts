@@ -10,80 +10,33 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as ContatoRouteImport } from './routes/contato'
-import { Route as GuiaGratuitoRouteImport } from './routes/guia-gratuito'
-import { Route as ServicosRouteImport } from './routes/servicos'
-import { Route as VivianePompeuRouteImport } from './routes/viviane-pompeu'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ContatoRoute = ContatoRouteImport.update({
-  id: '/contato',
-  path: '/contato',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const GuiaGratuitoRoute = GuiaGratuitoRouteImport.update({
-  id: '/guia-gratuito',
-  path: '/guia-gratuito',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ServicosRoute = ServicosRouteImport.update({
-  id: '/servicos',
-  path: '/servicos',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const VivianePompeuRoute = VivianePompeuRouteImport.update({
-  id: '/viviane-pompeu',
-  path: '/viviane-pompeu',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/contato': typeof ContatoRoute
-  '/guia-gratuito': typeof GuiaGratuitoRoute
-  '/servicos': typeof ServicosRoute
-  '/viviane-pompeu': typeof VivianePompeuRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/contato': typeof ContatoRoute
-  '/guia-gratuito': typeof GuiaGratuitoRoute
-  '/servicos': typeof ServicosRoute
-  '/viviane-pompeu': typeof VivianePompeuRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/contato': typeof ContatoRoute
-  '/guia-gratuito': typeof GuiaGratuitoRoute
-  '/servicos': typeof ServicosRoute
-  '/viviane-pompeu': typeof VivianePompeuRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    '/' | '/contato' | '/guia-gratuito' | '/servicos' | '/viviane-pompeu'
+  fullPaths: '/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/contato' | '/guia-gratuito' | '/servicos' | '/viviane-pompeu'
-  id:
-    | '__root__'
-    | '/'
-    | '/contato'
-    | '/guia-gratuito'
-    | '/servicos'
-    | '/viviane-pompeu'
+  to: '/'
+  id: '__root__' | '/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  ContatoRoute: typeof ContatoRoute
-  GuiaGratuitoRoute: typeof GuiaGratuitoRoute
-  ServicosRoute: typeof ServicosRoute
-  VivianePompeuRoute: typeof VivianePompeuRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -95,43 +48,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/contato': {
-      id: '/contato'
-      path: '/contato'
-      fullPath: '/contato'
-      preLoaderRoute: typeof ContatoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/guia-gratuito': {
-      id: '/guia-gratuito'
-      path: '/guia-gratuito'
-      fullPath: '/guia-gratuito'
-      preLoaderRoute: typeof GuiaGratuitoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/servicos': {
-      id: '/servicos'
-      path: '/servicos'
-      fullPath: '/servicos'
-      preLoaderRoute: typeof ServicosRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/viviane-pompeu': {
-      id: '/viviane-pompeu'
-      path: '/viviane-pompeu'
-      fullPath: '/viviane-pompeu'
-      preLoaderRoute: typeof VivianePompeuRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  ContatoRoute: ContatoRoute,
-  GuiaGratuitoRoute: GuiaGratuitoRoute,
-  ServicosRoute: ServicosRoute,
-  VivianePompeuRoute: VivianePompeuRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
