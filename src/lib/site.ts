@@ -95,8 +95,8 @@ export const cards: Card[] = [
   },
   {
     eyebrow: "E-book",
-    title: "Baixar o\nguia",
-    titleAccent: "para começar",
+    title: "15 dicas que\ngostaria de ter sabido",
+    titleAccent: "antes de começar",
     desc: "Conheça meu E-book onde separei as 15 coisas que eu gostaria de ter sabido antes de iniciar minha pesquisa.",
     cta: "Quero conhecer por R$3,97",
     href: "/guia-gratuito",
