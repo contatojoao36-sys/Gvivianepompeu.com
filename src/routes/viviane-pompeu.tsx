@@ -2,6 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell } from "@/components/PageShell";
 import { site } from "@/lib/site";
 import retrato from "@/assets/viviane-retrato.jpg";
+import retratoWebp from "@/assets/viviane-retrato.webp";
+import retratoAvif from "@/assets/viviane-retrato.avif";
 
 const title = "Quem é Viviane Pompeu | Genealogista";
 const description =
@@ -35,12 +37,18 @@ function SobrePage() {
       subtitle="Genealogista profissional, pesquisadora, palestrante, escritora e presidente da APGBR."
     >
       <div className="overflow-hidden rounded-2xl ring-1 ring-forest/10">
-        <img
-          src={retrato}
-          alt="Retrato de Viviane Pompeu, genealogista profissional"
-          className="h-auto w-full object-cover"
-          loading="eager"
-        />
+        <picture>
+          <source srcSet={retratoAvif} type="image/avif" />
+          <source srcSet={retratoWebp} type="image/webp" />
+          <img
+            src={retrato}
+            alt="Retrato de Viviane Pompeu, genealogista profissional"
+            width={1331}
+            height={1996}
+            className="h-auto w-full object-cover"
+            loading="eager"
+          />
+        </picture>
       </div>
 
       <p className="mt-8 text-[0.95rem] leading-relaxed text-ink/85">

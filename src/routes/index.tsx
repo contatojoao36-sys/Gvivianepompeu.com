@@ -145,8 +145,8 @@ function Home() {
               <img
                 src={portrait}
                 alt="Retrato de Viviane Pompeu, genealogista profissional"
-                width={1920}
-                height={1380}
+                width={1848}
+                height={1328}
                 sizes="(min-width: 672px) 672px, 100vw"
                 loading="eager"
                 fetchPriority="high"
