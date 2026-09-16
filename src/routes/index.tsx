@@ -123,7 +123,7 @@ function BannerCard({ card, index }: { card: Card; index: number }) {
 
 function Home() {
   return (
-    <main className="grain relative min-h-screen bg-background pb-28">
+    <main className="grain relative min-h-screen bg-background pb-14">
       {/* Brilho suave de fundo */}
       <div
         className="pointer-events-none absolute inset-x-0 top-0 h-[60vh] bg-[radial-gradient(70%_60%_at_50%_0%,color-mix(in_oklab,var(--sage)_38%,transparent),transparent_70%)]"
@@ -250,18 +250,6 @@ function Home() {
           </p>
         </footer>
       </div>
-
-      {/* Botão flutuante WhatsApp */}
-      <a
-        href={site.whatsapp}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed inset-x-0 bottom-0 z-50 mx-auto w-full max-w-2xl px-5 pb-4"
-      >
-        <span className="flex w-full items-center justify-center rounded-xl bg-forest py-4 text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-primary-foreground shadow-[0_16px_40px_-14px_rgba(122,38,58,0.7)] transition-colors hover:bg-primary">
-          Quero falar no WhatsApp
-        </span>
-      </a>
     </main>
   );
 }
