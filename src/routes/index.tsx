@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { cards, site, type Card } from "@/lib/site";
 import portrait from "@/assets/viviane-perfil.jpg";
+import portraitWebp from "@/assets/viviane-perfil.webp";
+import portraitAvif from "@/assets/viviane-perfil.avif";
 import thumbDocumentos from "@/assets/thumb-documentos.jpg";
 import thumbArvore from "@/assets/thumb-arvore.jpg";
 import thumbEuropa from "@/assets/thumb-europa.jpg";
@@ -30,6 +32,11 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [
+      // Hero photo is the LCP element — preload the AVIF variant actually
+      // served to modern browsers so the request starts immediately.
+      { rel: "preload", as: "image", href: portraitAvif, type: "image/avif", fetchPriority: "high" },
     ],
   }),
   component: Home,
@@ -132,14 +139,21 @@ function Home() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.1, ease: EASE }}
           >
-            <img
-              src={portrait}
-              alt="Retrato de Viviane Pompeu, genealogista profissional"
-              width={653}
-              height={653}
-              fetchPriority="high"
-              className="h-full w-full object-cover object-top"
-            />
+            <picture>
+              <source srcSet={portraitAvif} type="image/avif" />
+              <source srcSet={portraitWebp} type="image/webp" />
+              <img
+                src={portrait}
+                alt="Retrato de Viviane Pompeu, genealogista profissional"
+                width={1920}
+                height={1380}
+                sizes="(min-width: 672px) 672px, 100vw"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
+                className="h-full w-full object-cover object-top"
+              />
+            </picture>
             <div
               className="absolute inset-0 bg-gradient-to-t from-forest/80 via-forest/25 to-transparent"
               aria-hidden
