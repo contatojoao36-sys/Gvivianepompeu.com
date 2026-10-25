@@ -1,0 +1,116 @@
+/* Motion design da Nay Coelho.
+   Ideia central: respiração. Entrada orquestrada em uma única sequência,
+   ambiente que respira devagar (8s = 4s inspira, 4s expira) e revelações suaves ao rolar.
+   Tudo aqui só vale com html.motion (sem "reduzir movimento" no aparelho). */
+:root{
+  --ease-out:cubic-bezier(.16,1,.3,1);
+  --ease-soft:cubic-bezier(.45,0,.2,1);
+  --breath:8s;
+}
+.motion{scroll-behavior:smooth}
+
+/* Aura: manchas de cor da paleta que flutuam muito devagar atrás de tudo */
+.aura{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.aura i{position:absolute;border-radius:50%;filter:blur(60px);opacity:.55}
+.aura i:nth-child(1){width:70vmax;height:70vmax;left:-30vmax;top:-35vmax;background:var(--beige)}
+.aura i:nth-child(2){width:45vmax;height:45vmax;right:-25vmax;top:30vh;background:var(--sage);opacity:.22}
+.aura i:nth-child(3){width:50vmax;height:50vmax;left:-20vmax;bottom:-30vmax;background:var(--beige);opacity:.45}
+.motion .aura i:nth-child(1){animation:drift1 38s var(--ease-soft) infinite alternate}
+.motion .aura i:nth-child(2){animation:drift2 46s var(--ease-soft) infinite alternate}
+.motion .aura i:nth-child(3){animation:drift1 52s var(--ease-soft) infinite alternate-reverse}
+@keyframes drift1{to{transform:translate(8vmax,6vmax) scale(1.08)}}
+@keyframes drift2{to{transform:translate(-10vmax,-8vmax) scale(.92)}}
+
+/* 1. O arco se abre de baixo para cima e a foto assenta */
+.motion .portrait{clip-path:inset(100% 0 0 0 round 999px 999px 14px 14px);outline-color:transparent;
+  transition:clip-path 1.5s var(--ease-out),outline-color 1.2s ease .9s}
+.motion .portrait img{transform:scale(1.14);transition:transform 2.6s var(--ease-out)}
+.motion .in .portrait{clip-path:inset(0 0 0 0 round 999px 999px 14px 14px);outline-color:var(--sage)}
+.motion .in .portrait img{transform:scale(1)}
+
+/* Halo que respira em volta do arco */
+.arch::before{content:"";position:absolute;inset:-16px;border-radius:999px 999px 22px 22px;
+  border:1px solid var(--sage);opacity:0;pointer-events:none}
+.motion .in .arch::before{animation:breathe var(--breath) var(--ease-soft) 2.2s infinite}
+@keyframes breathe{
+  0%{transform:scale(.97);opacity:0}
+  50%{transform:scale(1.04);opacity:.5}
+  100%{transform:scale(.97);opacity:0}
+}
+
+/* 2. Nome: letras chegam uma a uma e o espaçamento assenta */
+h1 .ch{display:inline-block;white-space:pre}
+.motion h1 .ch{opacity:0;transform:translateY(.45em);filter:blur(6px);
+  transition:opacity 1s var(--ease-out),transform 1.2s var(--ease-out),filter 1s var(--ease-out);
+  transition-delay:calc(.5s + var(--i) * 55ms)}
+.motion .in h1 .ch{opacity:1;transform:none;filter:none}
+
+/* 3. "Registros Akáshicos" aparece como se fosse escrito à mão */
+.motion .script{clip-path:inset(0 100% 0 0);transition:clip-path 1.6s var(--ease-soft) 1.1s}
+.motion .in .script{clip-path:inset(0 0 0 0)}
+
+/* 4. Ramo: as linhas crescem do centro, o galho se desenha e as folhas brotam */
+.motion .leaf::before,.motion .leaf::after{transform:scaleX(0);transition:transform 1.4s var(--ease-out) 1.5s}
+.motion .leaf::before{transform-origin:right}
+.motion .leaf::after{transform-origin:left}
+.motion .in .leaf::before,.motion .in .leaf::after{transform:scaleX(1)}
+.motion .leaf .stem{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.2s var(--ease-soft) 1.6s}
+.motion .in .leaf .stem{stroke-dashoffset:0}
+.motion .leaf .lf{transform-box:fill-box;transform-origin:0% 100%;transform:scale(0);transition:transform .9s var(--ease-out)}
+.motion .leaf .lf:nth-of-type(2){transition-delay:1.9s}
+.motion .leaf .lf:nth-of-type(3){transition-delay:2.1s}
+.motion .leaf .lf:nth-of-type(4){transition-delay:2s}
+.motion .leaf .lf:nth-of-type(5){transition-delay:2.25s}
+.motion .in .leaf .lf{transform:scale(1)}
+
+/* Revelação genérica: sobe e ganha foco */
+.motion .r{opacity:0;transform:translateY(16px);transition:opacity 1.1s var(--ease-out),transform 1.2s var(--ease-out);transition-delay:var(--d,0s)}
+.motion .r.in,.motion .in .r{opacity:1;transform:none}
+.motion header .lead{--d:2s}
+.motion header .handle{--d:2.15s}
+
+/* 5. Caminhos entram em sequência */
+.motion nav .path{opacity:0;transform:translateY(22px) scale(.985);
+  transition:opacity 1s var(--ease-out),transform 1.2s var(--ease-out),border-color .4s,background .4s;
+  transition-delay:calc(2.3s + var(--i) * 140ms),calc(2.3s + var(--i) * 140ms),0s,0s}
+.motion nav.in .path{opacity:1;transform:none}
+.motion nav.in .path:hover{transform:translateY(-2px);transition-delay:0s}
+
+/* Brilho que atravessa o botão principal */
+.path{position:relative;overflow:hidden;isolation:isolate}
+.path.primary::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(105deg,transparent 35%,rgba(248,244,239,.22) 50%,transparent 65%);
+  transform:translateX(-110%)}
+.motion nav.in .path.primary::after{animation:sheen 1.6s var(--ease-soft) 3.4s}
+.motion .path.primary:hover::after{animation:sheen 1.2s var(--ease-soft)}
+@keyframes sheen{to{transform:translateX(110%)}}
+
+/* Ripple ao tocar */
+.ripple{position:absolute;border-radius:50%;pointer-events:none;background:currentColor;opacity:.18;
+  transform:scale(0);animation:ripple .8s var(--ease-out) forwards;z-index:-1}
+@keyframes ripple{to{transform:scale(1);opacity:0}}
+
+/* 6. Biblioteca: o bloco desenrola ao rolar e as faixas entram em fila */
+.motion section{opacity:0;transform:translateY(30px);clip-path:inset(0 0 12% 0 round 18px);
+  transition:opacity 1.1s var(--ease-out),transform 1.3s var(--ease-out),clip-path 1.4s var(--ease-out)}
+.motion section.in{opacity:1;transform:none;clip-path:inset(0 0 0 0 round 18px)}
+.motion section .label{--d:.25s}
+.motion section h2{--d:.35s}
+.motion section .intro{--d:.45s}
+.motion section li{opacity:0;transform:translateX(-12px);transition:opacity .9s var(--ease-out),transform 1s var(--ease-out);
+  transition-delay:calc(.55s + var(--i) * 110ms)}
+.motion section.in li{opacity:1;transform:none}
+
+/* Tocando: o botão respira no ritmo da meditação e a linha mostra o progresso */
+li button{position:relative}
+li button::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:1px solid var(--brown);opacity:0;pointer-events:none}
+.motion li button[aria-pressed="true"]::after{animation:breathe var(--breath) var(--ease-soft) infinite}
+.bar{transition:transform .25s linear}
+li .breath{display:block;height:0;overflow:hidden;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--brown);
+  transition:height .5s var(--ease-out)}
+li.playing .breath{height:1.4em}
+.motion li.playing .breath::before{content:"inspire";animation:cue var(--breath) steps(1) infinite}
+@keyframes cue{0%{content:"inspire"}50%{content:"expire"}}
+
+/* Rodapé */
+.motion footer{--d:.1s}

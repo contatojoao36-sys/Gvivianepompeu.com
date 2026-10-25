@@ -64,11 +64,11 @@ li time{font-size:.8rem;color:var(--muted);font-variant-numeric:tabular-nums}
 .note{margin:12px 0 0;font-size:.76rem;color:var(--muted)}
 footer{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;font-size:.72rem;letter-spacing:.2em;color:var(--muted);text-transform:uppercase}
 footer em{font:400 1.4rem var(--script);letter-spacing:0;text-transform:none;color:var(--brown)}
-@media (prefers-reduced-motion:no-preference){
-  header,nav,section{animation:rise 1.1s cubic-bezier(.16,1,.3,1) both}
-  nav{animation-delay:.12s} section{animation-delay:.24s}
-}
-@keyframes rise{from{transform:translateY(14px);opacity:.001}to{transform:none;opacity:1}}
 li button:disabled{opacity:.45;cursor:default;background:var(--ground);color:var(--brown)}
 .player{grid-column:1/-1;width:100%;height:36px}
 .soon{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+main{position:relative;z-index:1}
+.arch{position:relative;margin-bottom:14px}
+.arch .portrait{margin-bottom:0}
+li{position:relative}
+.bar{position:absolute;left:0;right:0;bottom:-1px;height:1px;background:var(--brown);transform:scaleX(0);transform-origin:left}
