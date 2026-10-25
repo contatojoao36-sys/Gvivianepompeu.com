@@ -79,7 +79,7 @@
 
     var audio = new Audio();
     audio.preload = "none";
-    audio.src = "/audio/" + m.arquivo;
+    audio.src = "audio/" + m.arquivo;
     audio.addEventListener("ended", function () { marcar(btn, false); });
     audio.addEventListener("timeupdate", function () {
       if (audio.duration) barra.style.transform = "scaleX(" + audio.currentTime / audio.duration + ")";
