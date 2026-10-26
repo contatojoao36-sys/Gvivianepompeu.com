@@ -13,6 +13,7 @@
       s.setAttribute("aria-hidden", "true");
       s.style.setProperty("--i", i);
       s.textContent = c;
+      if (i > txt.indexOf(" ")) s.classList.add("w2");
       el.appendChild(s);
     });
   });
@@ -28,7 +29,9 @@
       c.style.width = c.style.height = d + "px";
       c.style.left = e.clientX - r.left - d / 2 + "px";
       c.style.top = e.clientY - r.top - d / 2 + "px";
-      a.appendChild(c);
+      var clip = a.querySelector(".rip-clip");
+      if (!clip) { clip = document.createElement("span"); clip.className = "rip-clip"; a.appendChild(clip); }
+      clip.appendChild(c);
       setTimeout(function () { c.remove(); }, 900);
     });
   });
@@ -106,6 +109,9 @@
     requestAnimationFrame(function () {
       document.querySelector("header").classList.add("in");
       document.querySelector("nav").classList.add("in");
+      if (motion) setTimeout(function () {
+        document.querySelector(".photo").classList.add("breathing");
+      }, 2200);
     });
   });
   var alvos = document.querySelectorAll("section, footer");
